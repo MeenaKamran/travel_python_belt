@@ -1,0 +1,102 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	
+	<title>Travel Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/friends_style_sheet.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="col-md-12" class="active">
+			<nav class="navbar navbar-light bg-faded">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item active">
+						<a class="nav-link.pull-*-right" href="/logout">Logout <span class="sr-only"></span></a>
+					</li>
+				</ul>
+			</nav> 
+			<h5>Hello, {{session['name']}}!</h5>
+		</div> <!-- end of class="col-md-12" -->
+
+	</div> <!-- end of class="container" -->
+
+	<div class="container">
+		<h6>Your Trip Schedules</h6>
+		<table>
+			<col width="200">
+	      	<col width="150">
+	      	<col width="150">
+	      	<col width="350">
+		    <thead> 
+		      <th>Destination</th>
+		      <th>Travel Start Date</th>
+		      <th>Travel End Date</th>
+		      <th>Plan</th>
+		    </thead>
+			<tbody>
+		    {% for schd_trip in schd_trips: %}
+		      <tr>
+		      	<td> <a href="/travels/destination/{{schd_trip['id']}}">{{schd_trip['destination']}}</a> </td>
+		      	<td>{{schd_trip['trvlStartDate']}}</td>
+		      	<td>{{schd_trip['trvlEndDate']}}</td>
+		      	<td>{{schd_trip['plan']}} </td>
+		      </tr>
+
+		    {% endfor %}
+		    </tbody>
+	   </table>
+
+		<br>
+		<h6>Other User's Travel Plans</h6>
+		<table>
+			<col width="150">
+			<col width="200">
+			<col width="200">
+			<col width="200">
+			<col width="300">
+
+		  <thead>
+		  	<th>Name</th>
+		  	<th>Destination</th>
+		  	<th>Travel Start Date</th>
+		  	<th>Travel End Date</th>
+		  	<th>Do You Want Join?</th>
+		  </thead>
+		  <tbody>
+		  	{% for trip in other_trips: %}
+		  	<tr>
+		  		<td>{{trip['name']}}</td>
+		  		<td> <a href="/travels/destination/{{trip['id']}}">{{trip['destination']}}</td>
+		  		<td>{{trip['trvlStartDate']}}</td>
+		  		<td>{{trip['trvlEndDate']}}</td>
+		  		<td> <form action='/travels/join/{{trip['id']}}' method='POST'>
+				        <input type="submit" value="Join">
+				     </form>
+
+		  		</td>
+		  	</tr>
+		  	{% endfor %}
+		  </tbody>
+		</table>
+		<br>
+		<br>
+
+	  	<a href="/travels/add" class="col-sm-offset-10" id="add_trvl_plan">Add Travel Plan <span class="sr-only"></span></a>
+
+	  </div>
+
+	  
+
+	
+
+</body>
+</html>

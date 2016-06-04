@@ -1,0 +1,59 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>Destination</title>
+
+		<!-- <link rel="stylesheet" type="text/css" href="/static/css/books_style_sheet.css"> -->
+
+	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	
+</head>
+
+<body>
+
+	<div class="col-md-12" class="active">
+		<nav class="navbar navbar-light bg-faded">
+			<ul class="nav navbar-nav">
+				<li class="nav-item active navbar-right">
+					<a class="nav-link.pull-*-right" href="/travels">Home <span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item active navbar-right">
+					<a class="nav-link.pull-*-right" href="/">Logout <span class="sr-only"></span></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<hr>
+
+	<div class="col-md-5 " class="active">
+		<h3>{{destination}} </h3>   <!-- Destination -->
+		<p>Planned By: {{dest_info['name']}}</p>
+		<p>Description:{{dest_info['plan']}} </p>
+		<p>Travel Date From: {{dest_info['trvlStartDate']}}</p>
+		<p>Travel Date To: {{dest_info['trvlEndDate']}}</p>
+
+	</div>
+
+	<div class="col-md-12" class="active">
+		<h3>Other user's joining the trip</h3>
+
+		<div class="well sidebar-nav">
+		<ul class="nav">
+
+			{%for user in users%}
+		  		<li>{{user['name']}}</li>
+			{%endfor%}
+			
+
+		</ul> <!-- class="nav" -->
+		</div><!--/.well -->
+	</div> <!-- class="col-md-12" class="active" -->
+
+</body>
+</html>

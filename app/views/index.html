@@ -1,8 +1,131 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-  </head>
-  <body>
-    The best place to start is the "WelcomeController.py" file in app/controllers.
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+        <title>Login/Registration</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+        <!-- Top content -->
+        <div class="container">
+        	
+        	<!-- <div class="masthead"> -->
+            	<!-- <h3 class="text-muted">Welcome!</h3> -->
+            <h3>Welcome!</h3>
+    		<!-- </div> -->
+                
+            <div class="container">
+            	
+                <div class="row">
+                    
+                    <div class="col-sm-6">
+                        
+                        <div class="form-box">
+                        
+                            <!-- <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Register</h3>
+                                </div>
+                            </div> -->
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border">Register</legend>
+                            <div class="form-bottom">
+                                <form role="form" action="/create" method="post" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-4" for="form-name">Name</label>
+                                        <input type="text" name="form-name" placeholder="Name..." class="col-sm-8" id="form-name">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label class="col-sm-4" for="form-alias">Alias</label>
+                                        <input type="text" name="form-alias" placeholder="Alias..." class="col-sm-8" id="form-alias">
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label class="col-sm-4" for="form-username">Username</label>
+                                        <input type="text" name="form-username" placeholder="Username..." class="col-sm-8" id="form-username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4" for="form-password">Password</label>
+                                        <input type="password" name="form-password" placeholder="Password..." class="col-sm-8" id="form-password">
+                                        <p class="col-sm-12">*Password should be at least 8 characters</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4" for="form-conf-password">Confirm PW</label>
+                                        <input type="password" name="form-conf-password" placeholder="Password..." class="col-sm-8" id="form-conf-password">
+                                    </div>
+                                    
+                                    <br>
+                                    <br>
+                                    <!-- <div class="col-md-12 text-right"> -->
+                                        <button type="submit" class="btn col-sm-offset-10">Register</button>
+                                    <!-- </div> -->
+                                </form>
+
+                            </div>
+                            </fieldset>
+                        
+                        </div>
+                        
+                        
+                    </div> <!-- end of class="col-sm-6" -->
+                    
+                    
+                    <div class="col-sm-1 middle-border"></div>
+                    <!-- <div class="col-sm-1"></div> -->
+
+
+                    <div class="col-sm-5">
+                        
+                        <div class="form-box">
+                        
+                            <div class="form-bottom">
+                                
+                                <form role="form" action="/login" method="post" class="form-horizontal">
+                                    <fieldset >
+                                        <legend >Login</legend>
+                                        <div class="form-group">
+                                            <label class="col-sm-3" for="form-username">Username</label>
+                                            <input type="text" name="form-username" placeholder="Username..." class="col-sm-9" id="form-username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3" for="form-password">Password</label>
+                                            <input type="password" name="form-password" placeholder="Password..." class="col-sm-9" id="form-password">
+                                        </div>
+                                        
+                                        <button type="submit" class="btn col-sm-offset-10">Login</button>
+                                        
+                                    </fieldset>
+                                </form>
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                    	
+                    
+                </div>
+                
+            </div>
+            
+            
+        </div>
+
+    </body>
+
 </html>

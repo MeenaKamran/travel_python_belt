@@ -1,0 +1,68 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Add Plan</title>
+	<!-- <link rel="stylesheet" href="FreeBSD_css.css"> -->
+	<!-- Latest compiled and minified CSS -->
+	<!-- <link rel="stylesheet" type="text/css" href="/static/css/quotes_style_sheet.css"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="col-md-12" class="active">
+			<nav class="navbar navbar-light bg-faded">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item active">
+						<a class="nav-link.pull-*-right" href="#">Home <span class="sr-only"></span></a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link.pull-*-right" href="/logout">Logout <span class="sr-only"></span></a>
+					</li>
+				</ul>
+			</nav> 
+		</div> <!-- end of class="col-md-12" -->
+	</div> <!-- end of class="container" -->
+
+	<div class="container">
+		<h4>Add a Trip:</h4>
+		<div class="form-bottom">
+            <form role="form" action="/travels/add_trip" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4" for="destination">Destination</label>
+                    <input type="text" name="destination" class="col-sm-8" id="destination">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4" for="description">Description</label>
+                    <input type="text" name="description" class="col-sm-8" id="description">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4" for="trvl_start_date">Travel Date From</label>
+                    <!-- <input type="text" name="trvl_start_date" class="col-sm-8" id="trvl_start_date"> -->
+                    <div class="input-group col-sm-8">
+                    	<input id="trvl_start_date" type="date" class="date-picker form-control" placeholder="mm/dd/yyyy" name="trvl_start_date"/>                            
+					</div>
+                </div>
+                
+              	<div class="form-group">
+              		<label class="col-sm-4" for="trvl_end_date">Travel Date To</label>
+                    <!-- <input type="text" name="trvl_end_date" class="col-sm-8" id="trvl_end_date"> -->
+                    <div class="input-group col-sm-8">
+                    	<input id="trvl_end_date" type="date" class="date-picker form-control" placeholder="mm/dd/yyyy" name="trvl_end_date"/>                            
+					</div>
+                </div>
+                <button type="submit" class="btn col-sm-offset-8">Add</button>
+            </form>
+
+	</div>
+
+</body>
+</html>
